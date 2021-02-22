@@ -1,0 +1,80 @@
+
+@import '../styles/variables';
+
+$border-light: 1px solid $color-lightGray;
+
+$button-config:
+  "primary" $color-primary $color-white none,
+  "warning" $color-warning $color-white none,
+  "danger" $color-red $color-white none,
+  "light" $color-white $color-black $border-light;
+
+
+$button-sizes: (
+    'sm': 4rem,
+    'md': 8rem,
+    'lg': 12rem,
+    'xl':16rem,
+);
+
+.btn {
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__start-icon {
+        margin-top: 2px;
+        margin-right: 0.25rem;
+    }
+    
+    &__end-icon {
+        margin-top: 2px;
+        margin-left: 0.25rem;
+    }
+
+    &.is-rounded {
+        border-radius: 1rem;
+    }
+
+    &.is-full-width {
+        width: 100%
+    }
+
+    &.display-block {
+        display: block;
+    }
+
+    &.display-inline {
+        display: inline;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        background-color: $color-disabledGray;
+        color: $color-black        
+    }
+
+    &:focus {
+        outline: none;
+    }
+    
+    @each $key, $color, $fontColor, $border in $button-config {
+        &__btn--#{$key} {
+            background-color: $color;
+            color: $fontColor;
+            border: $border
+        }
+    }    
+
+    @each $key, $size in $button-sizes {
+        &.#{$key} {
+            width: $size;
+        }
+    }
+}
