@@ -1,6 +1,6 @@
 {
   "name": "adp-rollup-ui",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -8,6 +8,11 @@
     "lib"
   ],
   "types": "lib/index.d.ts",
+  "homepage": "https://github.com/sriram2534/adp-rollup-ui.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sriram2534/adp-rollup-ui.git"
+  },
   "scripts": {
     "clean": "rm -rf lib",
     "build": "rollup -c",
@@ -41,6 +46,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "sass-loader": "^11.0.1",
     "typed-scss-modules": "^4.1.0",
