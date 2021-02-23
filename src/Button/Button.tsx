@@ -32,8 +32,6 @@ const ButtonComponent: React.ForwardRefRenderFunction<BtnRef, ButtonProps> = (pr
     className: className,
   })
 
-  console.log(btnClass)
-
   return (
     <button ref={ref} className={btnClass} onClick={onClickHandler} {...rest}>
       {!!startIcon && <span className={styles.startIcon}>{startIcon}</span>}
