@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import cn from 'classnames'
 import { ButtonProps } from './Button.types'
-import './Button.scss'
+import styles from './Button.module.scss'
 
 export type BtnRef = HTMLButtonElement
 
@@ -22,13 +22,13 @@ const ButtonComponent: React.ForwardRefRenderFunction<BtnRef, ButtonProps> = (pr
   } = props
 
   const btnClass = cn({
-    btn: 1,
-    'is-rounded': isRounded,
-    [`btn__btn--${color}`]: color,
-    disabled: disabled,
-    [`${size}`]: size,
-    'is-full-width': isFullWidth,
-    [`display-${display}`]: display,
+    [styles['btn']]: 1,
+    [styles['is-rounded']]: isRounded,
+    [styles[`btn__btn--${color}`]]: color,
+    [styles['disabled']]: disabled,
+    [styles[`${size}`]]: size,
+    [styles['is-full-width']]: isFullWidth,
+    [styles[`display-${display}`]]: display,
     className: className,
   })
 
@@ -36,9 +36,9 @@ const ButtonComponent: React.ForwardRefRenderFunction<BtnRef, ButtonProps> = (pr
 
   return (
     <button ref={ref} className={btnClass} onClick={onClickHandler} {...rest}>
-      {!!startIcon && <span className={'btn__start-icon'}>{startIcon}</span>}
+      {!!startIcon && <span className={styles.startIcon}>{startIcon}</span>}
       {!!children && <span>{children}</span>}
-      {!!endIcon && <span className={'btn__end-icon'}>{endIcon}</span>}
+      {!!endIcon && <span className={styles.endIcon}>{endIcon}</span>}
     </button>
   )
 }

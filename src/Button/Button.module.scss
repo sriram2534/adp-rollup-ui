@@ -27,12 +27,12 @@ $button-sizes: (
     align-items: center;
     justify-content: center;
 
-    &__start-icon {
+    .startIcon {
         margin-top: 2px;
         margin-right: 0.25rem;
     }
     
-    &__end-icon {
+    .endIcon {
         margin-top: 2px;
         margin-left: 0.25rem;
     }
