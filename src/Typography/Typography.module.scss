@@ -1,0 +1,46 @@
+@import '../styles/variables';
+
+$colors: (
+    'primary': $color-primary,
+    'warning': $color-warning,
+    'danger': $color-danger,
+    'default': $color-black
+);
+
+@mixin typography-color {
+   @each $key, $color in $color {
+       &__color-#{$key} {
+           color: $color
+       }
+   } 
+}
+
+.typography {
+    font-size: 1rem;
+    color: $color-black;
+    cursor: initial;
+    margin: 0;
+    padding: 0;
+
+    @include typography-color;
+
+    &.inline {
+        display: inline;
+    }
+
+    &.block {
+        display: block;
+    }
+
+    &.hover-pointer {
+        cursor: pointer;
+    }
+
+    &.hover-not-allowed {
+        cursor: not-allowed;
+    }
+
+    &.show-underline {
+        text-decoration: underline;
+    }
+}
