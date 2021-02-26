@@ -3,12 +3,12 @@
 $colors: (
     'primary': $color-primary,
     'warning': $color-warning,
-    'danger': $color-danger,
+    'danger': $color-error,
     'default': $color-black
 );
 
 @mixin typography-color {
-   @each $key, $color in $color {
+   @each $key, $color in $colors {
        &__color-#{$key} {
            color: $color
        }
