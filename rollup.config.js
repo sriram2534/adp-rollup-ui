@@ -4,7 +4,10 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
+import autoprefixer from 'autoprefixer'
 import scss from 'rollup-plugin-scss'
+import styles from 'rollup-plugin-styles'
+import pkg from './package.json'
 
 const packageJson = require('./package.json')
 
@@ -22,15 +25,26 @@ export default {
       sourcemap: true,
     },
   ],
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.devDependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      modulesOnly: true,
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.scss'],
+    }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
-    postcss(),
-    scss({
-      output: 'lib/style.css',
+    // styles({ mode: 'emit', modules: true }),
+    postcss({
+      extract: true,
+      modules: true,
+      use: ['sass'],
     }),
+    // scss({ output: 'lib/styles.css' }),
     terser(),
     // copy({
     //   targets: [
