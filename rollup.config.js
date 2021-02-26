@@ -38,13 +38,12 @@ export default {
     }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
-    // styles({ mode: 'emit', modules: true }),
+    scss({ output: 'lib/styles.css' }),
     postcss({
       extract: true,
       modules: true,
       use: ['sass'],
     }),
-    // scss({ output: 'lib/styles.css' }),
     terser(),
     // copy({
     //   targets: [
